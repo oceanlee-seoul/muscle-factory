@@ -76,7 +76,11 @@ const quotes = [
 const quote = document.querySelector(".footer span:first-child");
 const author = document.querySelector(".footer span:last-child");
 
-const todaysQoute = quotes[Math.floor(Math.random() * quotes.length)];
+function quoteChange() {
+  const todaysQoute = quotes[Math.floor(Math.random() * quotes.length)];
+  quote.innerText = `"` + todaysQoute.quote + `"`;
+  author.innerText = todaysQoute.author;
+}
 
-quote.innerText = `"` + todaysQoute.quote + `"`;
-author.innerText = todaysQoute.author;
+quoteChange();
+setInterval(quoteChange, 10000);

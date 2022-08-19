@@ -2,6 +2,7 @@
 @import "header.css";
 @import "container.css";
 @import "footer.css";
+@import "timer.css";
 
 body {
   height: 100vh;
@@ -11,4 +12,5 @@ body {
   align-items: center;
   margin-top: 21.44px;
   margin-bottom: 21.44px;
+  background-color: rgba(0, 0, 0, 0.05);
 }
