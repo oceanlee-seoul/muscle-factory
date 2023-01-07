@@ -11,26 +11,61 @@ let min = 0;
 let sec = 0;
 let playing = false;
 
-function onClickPlay() {
-  setInterval(() => {
-    sec += 1;
-    if (sec < 10) {
-      $sec.textContent = "0" + sec.toString();
-    } else {
-      $sec.textContent = sec;
-    }
-  }, 1000);
+function timer() {
+  sec++;
+  if (sec === 60) {
+    sec = 0;
+    min += 1;
+  }
+  if (min === 60) {
+    min = 0;
+    hour += 1;
+  }
+  timerPrint();
 }
 
-function onClickPause() {}
+function timerPrint() {
+  if (hour < 10) {
+    $hour.textContent = `0${hour}`;
+  } else {
+    $hour.textContent = hour;
+  }
 
-function onClickReset() {
-  clearInterval(interval);
-  $hour.textContent = "00";
-  $min.textContent = "00";
-  $min.textContent = "00";
+  if (min < 10) {
+    $min.textContent = `0${min}`;
+  } else {
+    $min.textContent = min;
+  }
+
+  if (sec < 10) {
+    $sec.textContent = `0${sec}`;
+  } else {
+    $sec.textContent = sec;
+  }
 }
 
-$timer_play.addEventListener("click", onClickPlay);
-$timer_pause.addEventListener("click", onClickPause);
-$timer_reset.addEventListener("click", onClickReset);
+function onClick(event) {
+  const target = event.target.id;
+  if (target === "play" && playing === false) {
+    playing = true;
+    interval = setInterval(timer, 1000);
+  } else if (target === "play" && playing === true) {
+    return;
+  } else if (target === "pause" && playing === true) {
+    clearInterval(interval);
+    playing = false;
+  } else if (target === "reset") {
+    playing = false;
+    clearInterval(interval);
+    sec = 0;
+    min = 0;
+    hour = 0;
+    $hour.textContent = "00";
+    $min.textContent = "00";
+    $sec.textContent = "00";
+  }
+}
+
+$timer_play.addEventListener("click", onClick);
+$timer_pause.addEventListener("click", onClick);
+$timer_reset.addEventListener("click", onClick);
