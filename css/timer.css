@@ -12,6 +12,12 @@
 .timer__display {
   font-size: 65px;
   padding-top: 10px;
+  display: flex;
+}
+
+p {
+  margin: 0px;
+  padding: 0px;
 }
 
 .timer__buttons {

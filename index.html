@@ -15,15 +15,21 @@
     </div>
 
     <div class="timer">
-      <div class="timer__display">00:00:00</div>
+      <div class="timer__display" id="timer__display">
+        <p id="hour">00</p>
+        <p>:</p>
+        <p id="min">00</p>
+        <p>:</p>
+        <p id="sec">00</p>
+      </div>
       <div class="timer__buttons">
-        <div class="timer__buttons-play">
+        <div class="timer__buttons-play" id="play">
           <i class="fa-solid fa-play fa-4x"></i>
         </div>
-        <div class="timer__buttons-pause">
+        <div class="timer__buttons-pause" id="pause">
           <i class="fa-solid fa-pause fa-4x"></i>
         </div>
-        <div class="timer__buttons-reset">
+        <div class="timer__buttons-reset" id="reset">
           <i class="fa-solid fa-stop fa-4x"></i>
         </div>
       </div>
@@ -44,6 +50,7 @@
 
     <script src="js/quote.js"></script>
     <script src="js/todo.js"></script>
+    <script src="js/timer.js"></script>
     <script
       src="https://kit.fontawesome.com/493cc16663.js"
       crossorigin="anonymous"
